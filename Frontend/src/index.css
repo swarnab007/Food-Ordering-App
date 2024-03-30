@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  width: 80%;
+  margin: auto;
+}
+
+body {
+  min-height: 100vh;
+}
+
+@layer utilities {
+    /* Define custom color */
+    .bg-custom-yellow {
+      background-color: #E2B887;
+    }
+  }
+  .active {
+    border-bottom: 2px solid tomato;
+  }
+  .dot {
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+  }
+  .header {
+    animation: fadeIn 3s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+    
+  }

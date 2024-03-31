@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app {
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
@@ -19,6 +19,11 @@ body {
   }
   .active {
     border-bottom: 2px solid tomato;
+  }
+  .borderActive {
+    border-radius: 50%;
+    border: 4px solid tomato;
+    padding: 10px;
   }
   .dot {
     background-color: tomato;

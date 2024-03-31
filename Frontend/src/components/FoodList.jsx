@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const FoodList = () => {
+const FoodList = ({ category, setCategory }) => {
   return (
     <div className="foodlist flex p-10 flex-col mt-20">
       <div className="foodlist-text flex flex-col justify-center items-center text-center">
@@ -19,9 +19,9 @@ const FoodList = () => {
           swift delivery to what ever location within Ilorin.
         </p>
       </div>
-      <div className="foodlist-items flex flex-col gap-[40px] mt-10 m-auto">
+      <div className="foodlist-items cursor-pointer flex flex-col gap-[20px] mt-10 p-10">
         <Swiper
-          slidesPerView={6}
+          slidesPerView={5}
           spaceBetween={60}
           pagination={{
             clickable: true,
@@ -33,9 +33,23 @@ const FoodList = () => {
           {menu_list.map((item, index) => {
             return (
               <SwiperSlide>
-                <div key={index} className="foodlist-item text-center">
-                  <img src={item.menu_image} alt="food" />
-                  <p className="text-white text-[16px] mt-2">
+                <div
+                  onClick={() =>
+                    setCategory((prev) =>
+                      prev === item.menu_name ? "all" : item.menu_name
+                    )
+                  }
+                  key={index}
+                  className="foodlist-item text-center p-5"
+                >
+                  <img
+                    className={
+                      category === item.menu_name ? "borderActive" : ""
+                    }
+                    src={item.menu_image}
+                    alt="food"
+                  />
+                  <p className="text-white text-[22px] mt-6">
                     {item.menu_name}
                   </p>
                 </div>
